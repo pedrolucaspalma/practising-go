@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func lala1() {
     var name string = "pedro"
     fmt.Println("testing go. Hello " + name)
 
