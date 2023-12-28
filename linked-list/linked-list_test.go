@@ -32,5 +32,44 @@ func TestCreate(t *testing.T) {
 	}
 }
 
-func TestPush(t *testing.T) {
+func TestPushIntegers(t *testing.T) {
+	var root = Create[int](testIntVals[0])
+
+	for idx, val := range testIntVals {
+		if idx == 0 {
+			continue
+		}
+		root.Push(val)
+	}
+
+	aux := *root
+	for idx, val := range testIntVals {
+		if aux.Val != val {
+			t.Errorf("Val of idx %d in testIntVals wasnt created with proper value. Expected %v, got %v \n", idx, val, aux.Val)
+		}
+		if idx != len(testIntVals)-1 {
+			aux = *aux.next
+		}
+	}
+}
+
+func TestPopIntegers(t *testing.T) {
+	var root = Create[int](testIntVals[0])
+
+	for idx, val := range testIntVals {
+		if idx == 0 {
+			continue
+		}
+		root.Push(val)
+	}
+
+	aux := *root
+	for idx, val := range testIntVals {
+		if aux.Val != val {
+			t.Errorf("Val of idx %d in testIntVals wasnt created with proper value. Expected %v, got %v \n", idx, val, aux.Val)
+		}
+		if idx != len(testIntVals)-1 {
+			aux = *aux.next
+		}
+	}
 }
